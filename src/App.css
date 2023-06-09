@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
 .App-frame {
   display: grid;
   grid-template-rows: 1.5fr 6fr;
@@ -13,8 +15,18 @@
 }
 
 .Header-text {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 18px;
   padding: 0;
+  padding-bottom: 0.5rem;
   margin: 0;
+}
+
+.Header-title {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 50px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .Canvas-frame {

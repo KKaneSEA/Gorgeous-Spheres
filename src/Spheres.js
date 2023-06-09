@@ -19,9 +19,31 @@ export default function Spheres() {
   const texture1 = useTexture("./normal1.jpg");
   const texture2 = useTexture("./normal2.jpg");
   const texture3 = useTexture("./normal3.jpg");
-  const normalArrays = [texture1, texture2, texture3];
+  const texture4 = useTexture("./normal4.jpg");
+  const texture5 = useTexture("./normal5.jpg");
+  const texture6 = useTexture("./normal6.jpg");
+  const texture7 = useTexture("./normal7.jpg");
+  const texture8 = useTexture("./normal8.jpg");
+  const normalArrays = [
+    texture1,
+    texture2,
+    texture3,
+    texture4,
+    texture5,
+    texture6,
+    texture7,
+    texture8,
+  ];
 
-  const colorArrays = ["red", "blue", "yellow"];
+  const colorArrays = [
+    "#ffb3b3",
+    "#F7E6B2",
+    "#E0A900",
+    "#BA6368",
+    "#FFCD69",
+    "#C7FC62",
+    "#E5FFB3",
+  ];
 
   function randomItem(items) {
     return items[Math.floor(Math.random() * items.length)];
@@ -60,7 +82,7 @@ export default function Spheres() {
         maxDistance={7}
         target={[-0.7, -0.8, -2.2]}
       />
-      <directionalLight position={[1, 1, 3]} intensity={1} color="blue" />
+      <directionalLight position={[1, 1, 3]} intensity={1} color="white" />
       <ambientLight intensity={1.2} color="white" />
       <mesh
         ref={sphere1}
@@ -69,7 +91,7 @@ export default function Spheres() {
         scale={0.7}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere2}
@@ -78,7 +100,7 @@ export default function Spheres() {
         scale={0.7}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArrays)} />
       </mesh>
 
       <mesh
@@ -88,7 +110,7 @@ export default function Spheres() {
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere4}
@@ -97,7 +119,7 @@ export default function Spheres() {
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#BADFFF" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere5}
@@ -106,7 +128,7 @@ export default function Spheres() {
         scale={1}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere6}
@@ -115,7 +137,7 @@ export default function Spheres() {
         scale={0.8}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere7}
@@ -124,7 +146,7 @@ export default function Spheres() {
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere8}
@@ -133,7 +155,7 @@ export default function Spheres() {
         scale={1.5}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F77B23" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere9}
@@ -142,7 +164,7 @@ export default function Spheres() {
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere10}
@@ -151,7 +173,7 @@ export default function Spheres() {
         scale={1.3}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F77B23" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere11}
@@ -160,7 +182,7 @@ export default function Spheres() {
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArrays)} />
       </mesh>
       <mesh
         ref={sphere12}
@@ -169,7 +191,7 @@ export default function Spheres() {
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="green" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArrays)} />
       </mesh>
     </>
   );
