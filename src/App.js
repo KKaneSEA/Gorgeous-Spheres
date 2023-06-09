@@ -1,7 +1,10 @@
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import { Sparkles, OrbitControls } from "@react-three/drei";
+import Loading from "./Loading.js";
 import Spheres from "./Spheres.js";
+
+import { Suspense } from "react";
 
 function App() {
   return (
@@ -14,7 +17,11 @@ function App() {
         </header>
         <div className="Canvas-frame">
           <Canvas flat className="Canvas">
-            <Spheres />
+            <Suspense
+              fallback={<Loading position-y={0.05} scale={[2, 3, 2]} />}
+            >
+              <Spheres />
+            </Suspense>
             <Sparkles
               size={7}
               scale={[10, 10, 30]}
