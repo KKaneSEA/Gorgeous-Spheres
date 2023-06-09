@@ -1,3 +1,5 @@
+import "./App.scss";
+
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { useRef } from "react";

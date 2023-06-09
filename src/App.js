@@ -1,4 +1,5 @@
-import "./App.css";
+// import "./App.css";
+import "./App.scss";
 import { Canvas } from "@react-three/fiber";
 import { Sparkles, OrbitControls } from "@react-three/drei";
 import Loading from "./Loading.js";

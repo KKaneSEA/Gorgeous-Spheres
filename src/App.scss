@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
+$bp-extraLarge: 75.31em; //1205px
+$bp-large: 61.06em; //977px
+$bp-medium: 42.1em; //675px
+$bp-small: 35.93em; //575px
+$bp-smallest: 29.5em; //472px
+
+html {
+  font-size: 62.5%; /* 1 rem = 10px, 10px/16px (browser default) = 62.5% */
+}
+
+.App-frame {
+  display: grid;
+  grid-template-rows: 1.5fr 6fr;
+  height: 100vh;
+  background-color: antiquewhite;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: 0.5fr 6fr;
+  }
+}
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (max-width: $bp-medium) {
+    justify-content: start;
+  }
+}
+
+.Header-text {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 18px;
+  padding: 0;
+  padding-bottom: 0.5rem;
+  margin: 0;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 12px;
+    padding-bottom: 0;
+  }
+}
+
+.Header-title {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 50px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 30px;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    align-self: center;
+  }
+}
+
+.Canvas-frame {
+  display: flex;
+  height: 100%;
+  background-color: antiquewhite;
+  justify-content: center;
+}
+.Canvas {
+  align-self: center;
+
+  display: flex;
+  width: 70% !important;
+  height: 90% !important;
+  background-color: tan;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 90% !important;
+    height: 90% !important;
+    align-self: flex-start;
+    margin-top: 2rem;
+  }
+}
