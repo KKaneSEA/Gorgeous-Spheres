@@ -1,6 +1,19 @@
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { useRef } from "react";
+import useSound from "use-sound";
+import sound1 from "./sounds/sound1.mp3";
+import sound2 from "./sounds/sound2.mp3";
+import sound3 from "./sounds/sound3.mp3";
+import sound4 from "./sounds/sound4.mp3";
+import sound5 from "./sounds/sound5.mp3";
+// import sound6 from "./sounds/sound6.mp3";
+// import sound7 from "./sounds/sound7.mp3";
+// import sound8 from "./sounds/sound8.mp3";
+// import sound9 from "./sounds/sound9.mp3";
+// import sound10 from "./sounds/sound10.mp3";
+// import sound11 from "./sounds/sound11.mp3";
+// import sound12 from "./sounds/sound12.mp3";
 
 export default function Spheres() {
   const sphere1 = useRef();
@@ -24,7 +37,7 @@ export default function Spheres() {
   const texture6 = useTexture("./normal6.jpg");
   const texture7 = useTexture("./normal7.jpg");
   const texture8 = useTexture("./normal8.jpg");
-  const normalArrays = [
+  const normalArray = [
     texture1,
     texture2,
     texture3,
@@ -35,7 +48,7 @@ export default function Spheres() {
     texture8,
   ];
 
-  const colorArrays = [
+  const colorArray = [
     "#ffb3b3",
     "#F7E6B2",
     "#E0A900",
@@ -44,6 +57,19 @@ export default function Spheres() {
     "#C7FC62",
     "#E5FFB3",
   ];
+
+  const [play1] = useSound(sound1);
+  const [play2] = useSound(sound2);
+  const [play3] = useSound(sound3);
+  const [play4] = useSound(sound4);
+  const [play5] = useSound(sound5);
+  // const [play6] = useSound(sound6);
+  // const [play7] = useSound(sound7);
+  // const [play8] = useSound(sound8);
+  // const [play9] = useSound(sound9);
+  // const [play10] = useSound(sound10);
+  // const [play11] = useSound(sound11);
+  // const [play12] = useSound(sound12);
 
   function randomItem(items) {
     return items[Math.floor(Math.random() * items.length)];
@@ -68,7 +94,7 @@ export default function Spheres() {
 
   const sphereHandler = (evt) => {
     // evt.object.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
-    evt.object.material.color.set(randomItem(colorArrays));
+    evt.object.material.color.set(randomItem(colorArray));
     // evt.object.material.map.set(randomItem(normalArrays));
     console.log(evt.object);
     console.log(evt.eventObject.uuid);
@@ -86,112 +112,160 @@ export default function Spheres() {
       <ambientLight intensity={1.2} color="white" />
       <mesh
         ref={sphere1}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play5();
+        }}
+        onContextMenu={sphereHandler}
         position={[3, 1.6, 1]}
         scale={0.7}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere2}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play4();
+        }}
+        onContextMenu={sphereHandler}
         position={[-2, 2, -2]}
         scale={0.7}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
       </mesh>
 
       <mesh
         ref={sphere3}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play4();
+        }}
+        onContextMenu={sphereHandler}
         position={[2.2, 1, -5]}
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere4}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play2();
+        }}
+        onContextMenu={sphereHandler}
         position={[6, -2, -2.5]}
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#BADFFF" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#BADFFF" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere5}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play3();
+        }}
+        onContextMenu={sphereHandler}
         position={[1.1, -3.2, -0.9]}
         scale={1}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere6}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play3();
+        }}
+        onContextMenu={sphereHandler}
         position={[-2.5, -1.2, -2]}
         scale={0.8}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere7}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play4();
+        }}
+        onContextMenu={sphereHandler}
         position={[-5, 2, -6]}
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere8}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play3();
+        }}
+        onContextMenu={sphereHandler}
         position={[-6, -6, -1.8]}
         scale={1.5}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#F77B23" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere9}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play5();
+        }}
+        onContextMenu={sphereHandler}
         position={[1, -5, 3]}
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere10}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play5();
+        }}
+        onContextMenu={sphereHandler}
         position={[-7, 1.2, -1.2]}
         scale={1.3}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#F77B23" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere11}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play3();
+        }}
+        onContextMenu={sphereHandler}
         position={[1, -2, 6]}
         scale={1.2}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
       </mesh>
       <mesh
         ref={sphere12}
-        onClick={sphereHandler}
+        onClick={(evt) => {
+          sphereHandler(evt);
+          play2();
+        }}
+        onContextMenu={sphereHandler}
         position={[1, 2, -10]}
         scale={0.9}
       >
         <sphereGeometry />
-        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArrays)} />
+        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
       </mesh>
     </>
   );
