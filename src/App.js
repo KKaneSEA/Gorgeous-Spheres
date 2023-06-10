@@ -14,7 +14,7 @@ function App() {
         <header className="Header">
           <h1 className="Header-title">GORGEOUS SPHERES</h1>
           <p className="Header-text">CLICK A SPHERE</p>
-          <p className="Header-text">(SOUND ON)</p>
+          <p className="Header-text-small">please have sound on</p>
         </header>
         <div className="Canvas-frame">
           <Canvas flat className="Canvas">
