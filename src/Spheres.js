@@ -9,7 +9,7 @@ import sound2 from "./sounds/sound2.mp3";
 import sound3 from "./sounds/sound3.mp3";
 import sound4 from "./sounds/sound4.mp3";
 import sound5 from "./sounds/sound5.mp3";
-// import sound6 from "./sounds/sound6.mp3";
+import sound6 from "./sounds/sound6.mp3";
 // import sound7 from "./sounds/sound7.mp3";
 // import sound8 from "./sounds/sound8.mp3";
 // import sound9 from "./sounds/sound9.mp3";
@@ -58,14 +58,15 @@ export default function Spheres() {
     "#FFCD69",
     "#C7FC62",
     "#E5FFB3",
+    "#BADFFF",
   ];
 
-  const [play1] = useSound(sound1);
-  const [play2] = useSound(sound2);
-  const [play3] = useSound(sound3);
-  const [play4] = useSound(sound4);
-  const [play5] = useSound(sound5);
-  // const [play6] = useSound(sound6);
+  const [play1] = useSound(sound1, { volume: 0.1 });
+  const [play2] = useSound(sound2, { volume: 0.1 });
+  const [play3] = useSound(sound3, { volume: 0.05 });
+  const [play4] = useSound(sound4, { volume: 0.06 });
+  const [play5] = useSound(sound5, { volume: 0.2 });
+  const [play6] = useSound(sound6, { volume: 0.09 });
   // const [play7] = useSound(sound7);
   // const [play8] = useSound(sound8);
   // const [play9] = useSound(sound9);
@@ -107,7 +108,7 @@ export default function Spheres() {
     <>
       <OrbitControls
         minDistance={2}
-        maxDistance={7}
+        maxDistance={10}
         target={[-0.7, -0.8, -2.2]}
       />
       <directionalLight position={[1, 1, 3]} intensity={1} color="white" />
@@ -143,7 +144,7 @@ export default function Spheres() {
         ref={sphere3}
         onClick={(evt) => {
           sphereHandler(evt);
-          play4();
+          play6();
         }}
         onContextMenu={sphereHandler}
         position={[2.2, 1, -5]}
@@ -169,7 +170,7 @@ export default function Spheres() {
         ref={sphere5}
         onClick={(evt) => {
           sphereHandler(evt);
-          play3();
+          play2();
         }}
         onContextMenu={sphereHandler}
         position={[1.1, -3.2, -0.9]}
@@ -182,7 +183,7 @@ export default function Spheres() {
         ref={sphere6}
         onClick={(evt) => {
           sphereHandler(evt);
-          play3();
+          play1();
         }}
         onContextMenu={sphereHandler}
         position={[-2.5, -1.2, -2]}
@@ -234,7 +235,7 @@ export default function Spheres() {
         ref={sphere10}
         onClick={(evt) => {
           sphereHandler(evt);
-          play5();
+          play2();
         }}
         onContextMenu={sphereHandler}
         position={[-7, 1.2, -1.2]}
@@ -247,7 +248,7 @@ export default function Spheres() {
         ref={sphere11}
         onClick={(evt) => {
           sphereHandler(evt);
-          play3();
+          play1();
         }}
         onContextMenu={sphereHandler}
         position={[1, -2, 6]}
@@ -260,7 +261,7 @@ export default function Spheres() {
         ref={sphere12}
         onClick={(evt) => {
           sphereHandler(evt);
-          play2();
+          play5();
         }}
         onContextMenu={sphereHandler}
         position={[1, 2, -10]}

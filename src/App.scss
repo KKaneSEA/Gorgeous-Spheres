@@ -66,16 +66,16 @@ html {
   justify-content: center;
 }
 .Canvas {
-  align-self: center;
+  align-self: flex-start;
 
   display: flex;
   width: 70% !important;
-  height: 90% !important;
+  height: 92% !important;
   background-color: tan;
 
   @media only screen and (max-width: $bp-medium) {
     width: 90% !important;
-    height: 60% !important;
+    height: 72% !important;
     align-self: flex-start;
     margin-top: 2rem;
   }
