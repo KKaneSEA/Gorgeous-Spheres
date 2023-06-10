@@ -9,13 +9,6 @@ import sound2 from "./sounds/sound2.mp3";
 import sound3 from "./sounds/sound3.mp3";
 import sound4 from "./sounds/sound4.mp3";
 import sound5 from "./sounds/sound5.mp3";
-import sound6 from "./sounds/sound6.mp3";
-// import sound7 from "./sounds/sound7.mp3";
-// import sound8 from "./sounds/sound8.mp3";
-// import sound9 from "./sounds/sound9.mp3";
-// import sound10 from "./sounds/sound10.mp3";
-// import sound11 from "./sounds/sound11.mp3";
-// import sound12 from "./sounds/sound12.mp3";
 
 export default function Spheres() {
   const sphere1 = useRef();
@@ -64,15 +57,8 @@ export default function Spheres() {
   const [play1] = useSound(sound1, { volume: 0.1 });
   const [play2] = useSound(sound2, { volume: 0.1 });
   const [play3] = useSound(sound3, { volume: 0.05 });
-  const [play4] = useSound(sound4, { volume: 0.06 });
+  const [play4] = useSound(sound4, { volume: 0.09 });
   const [play5] = useSound(sound5, { volume: 0.2 });
-  const [play6] = useSound(sound6, { volume: 0.09 });
-  // const [play7] = useSound(sound7);
-  // const [play8] = useSound(sound8);
-  // const [play9] = useSound(sound9);
-  // const [play10] = useSound(sound10);
-  // const [play11] = useSound(sound11);
-  // const [play12] = useSound(sound12);
 
   function randomItem(items) {
     return items[Math.floor(Math.random() * items.length)];
@@ -144,7 +130,7 @@ export default function Spheres() {
         ref={sphere3}
         onClick={(evt) => {
           sphereHandler(evt);
-          play6();
+          play3();
         }}
         onContextMenu={sphereHandler}
         position={[2.2, 1, -5]}
