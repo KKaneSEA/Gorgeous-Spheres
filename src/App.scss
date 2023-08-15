@@ -33,9 +33,9 @@ html {
 
 .Header-text {
   font-family: "Fjalla One", sans-serif;
-  font-size: 18px;
+  font-size: 23px;
   padding: 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.2rem;
   margin: 0;
 
   @media only screen and (max-width: $bp-medium) {
@@ -45,11 +45,11 @@ html {
 }
 
 .Header-text-small {
-  font-size: 12.5px;
+  font-size: 15px;
   // font-style: italic;
   padding: 0;
 
-  padding-bottom: 1rem;
+  padding-bottom: 1.2rem;
   margin: 0;
   font-family: "Fjalla One", sans-serif;
   @media only screen and (max-width: $bp-medium) {
@@ -63,7 +63,7 @@ html {
 .Header-title {
   font-family: "Fjalla One", sans-serif;
   font-size: 50px;
-  margin-top: 1.5rem;
+  margin-top: 3.5rem;
   margin-bottom: 1.5rem;
 
   @media only screen and (max-width: $bp-medium) {

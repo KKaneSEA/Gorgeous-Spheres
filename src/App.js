@@ -14,10 +14,10 @@ function App() {
         <header className="Header">
           <h1 className="Header-title">GORGEOUS SPHERES</h1>
           <p className="Header-text">CLICK A SPHERE</p>
-          <p className="Header-text-small">please have sound on</p>
+          <p className="Header-text-small">PLEASE HAVE SOUND ON</p>
         </header>
         <div className="Canvas-frame">
-          <Canvas flat className="Canvas">
+          <Canvas flat className="Canvas" camera={{ fov: 50 }}>
             <Suspense
               fallback={<Loading position-y={0.05} scale={[2, 3, 2]} />}
             >

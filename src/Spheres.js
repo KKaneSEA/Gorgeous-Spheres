@@ -2,7 +2,7 @@ import "./App.scss";
 
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import useSound from "use-sound";
 import sound1 from "./sounds/sound1.mp3";
 import sound2 from "./sounds/sound2.mp3";
@@ -108,6 +108,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[3, 1.6, 1]}
         scale={0.7}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
@@ -121,6 +123,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[-2, 2, -2]}
         scale={0.7}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
@@ -135,6 +139,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[2.2, 1, -5]}
         scale={1.2}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
@@ -148,6 +154,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[6, -2, -2.5]}
         scale={0.9}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#BADFFF" map={randomItem(normalArray)} />
@@ -161,6 +169,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[1.1, -3.2, -0.9]}
         scale={1}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
@@ -174,6 +184,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[-2.5, -1.2, -2]}
         scale={0.8}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
@@ -187,6 +199,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[-5, 2, -6]}
         scale={1.2}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
@@ -200,6 +214,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[-6, -6, -1.8]}
         scale={1.5}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
@@ -213,6 +229,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[1, -5, 3]}
         scale={0.9}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
@@ -226,6 +244,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[-7, 1.2, -1.2]}
         scale={1.3}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
@@ -239,6 +259,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[1, -2, 6]}
         scale={1.2}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
@@ -252,6 +274,8 @@ export default function Spheres() {
         onContextMenu={sphereHandler}
         position={[1, 2, -10]}
         scale={0.9}
+        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
+        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
       >
         <sphereGeometry />
         <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
