@@ -2,7 +2,7 @@
 import "./App.scss";
 import { createXRStore, XR } from "@react-three/xr";
 import { Canvas } from "@react-three/fiber";
-import { Sparkles, OrbitControls } from "@react-three/drei";
+import { Sparkles } from "@react-three/drei";
 
 import Loading from "./Loading.js";
 import Spheres from "./Spheres.js";
