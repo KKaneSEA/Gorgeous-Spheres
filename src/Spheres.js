@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./App.css";
 
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";

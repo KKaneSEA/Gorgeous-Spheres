@@ -1,5 +1,5 @@
 // import "./App.css";
-import "./App.scss";
+import "./App.css";
 
 import { Text, Center } from "@react-three/drei";
 import * as THREE from "three";

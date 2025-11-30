@@ -1,5 +1,5 @@
 // import "./App.css";
-import "./App.scss";
+import "./App.css";
 import { createXRStore, XR } from "@react-three/xr";
 import { Canvas } from "@react-three/fiber";
 import { Sparkles } from "@react-three/drei";
