@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useFrame } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import useSound from "use-sound";
 import sound1 from "./sounds/sound1.mp3";
 import sound2 from "./sounds/sound2.mp3";
@@ -11,39 +11,18 @@ import sound4 from "./sounds/sound4.mp3";
 import sound5 from "./sounds/sound5.mp3";
 
 export default function Spheres() {
-  const sphere1 = useRef();
-  const sphere2 = useRef();
-  const sphere3 = useRef();
-  const sphere4 = useRef();
-  const sphere5 = useRef();
-  const sphere6 = useRef();
-  const sphere7 = useRef();
-  const sphere8 = useRef();
-  const sphere9 = useRef();
-  const sphere10 = useRef();
-  const sphere11 = useRef();
-  const sphere12 = useRef();
+  const textures = useTexture([
+    "./normal1.jpg",
+    "./normal2.jpg",
+    "./normal3.jpg",
+    "./normal4.jpg",
+    "./normal5.jpg",
+    "./normal6.jpg",
+    "./normal7.jpg",
+    "./normal8.jpg",
+  ]);
 
-  const texture1 = useTexture("./normal1.jpg");
-  const texture2 = useTexture("./normal2.jpg");
-  const texture3 = useTexture("./normal3.jpg");
-  const texture4 = useTexture("./normal4.jpg");
-  const texture5 = useTexture("./normal5.jpg");
-  const texture6 = useTexture("./normal6.jpg");
-  const texture7 = useTexture("./normal7.jpg");
-  const texture8 = useTexture("./normal8.jpg");
-  const normalArray = [
-    texture1,
-    texture2,
-    texture3,
-    texture4,
-    texture5,
-    texture6,
-    texture7,
-    texture8,
-  ];
-
-  const colorArray = [
+  const colors = [
     "#ffb3b3",
     "#F7E6B2",
     "#E0A900",
@@ -60,34 +39,117 @@ export default function Spheres() {
   const [play4] = useSound(sound4, { volume: 0.09 });
   const [play5] = useSound(sound5, { volume: 0.2 });
 
-  function randomItem(items) {
-    return items[Math.floor(Math.random() * items.length)];
-  }
+  const sounds = [play1, play2, play3, play4, play5];
+
+  const sphereData = [
+    {
+      position: [3, 1.6, 1],
+      scale: 0.7,
+      color: "#FFBFC3",
+      sound: play5,
+      rotation: [0, 0.6, 0.6],
+    },
+    {
+      position: [-2, 2, -2],
+      scale: 0.7,
+      color: "#E6D62E",
+      sound: play4,
+      rotation: [0, 0, 0.6],
+    },
+    {
+      position: [2.2, 1, -5],
+      scale: 1.2,
+      color: "#FFBFC3",
+      sound: play3,
+      rotation: [0, 0, 0.5],
+    },
+    {
+      position: [6, -2, -2.5],
+      scale: 0.9,
+      color: "#BADFFF",
+      sound: play2,
+      rotation: [0, 0.6, 0],
+    },
+    {
+      position: [1.1, -3.2, -0.9],
+      scale: 1,
+      color: "#EBDCAB",
+      sound: play2,
+      rotation: [0.6, 0, 0],
+    },
+    {
+      position: [-2.5, -1.2, -2],
+      scale: 0.8,
+      color: "#F0BB0E",
+      sound: play1,
+      rotation: [0.2, 0, 0],
+    },
+    {
+      position: [-5, 2, -6],
+      scale: 1.2,
+      color: "#FFBFC3",
+      sound: play4,
+      rotation: [0, 0, 0.6],
+    },
+    {
+      position: [-6, -6, -1.8],
+      scale: 1.5,
+      color: "#F77B23",
+      sound: play3,
+      rotation: [0, 0, 0.6],
+    },
+    {
+      position: [1, -5, 3],
+      scale: 0.9,
+      color: "#F0BB0E",
+      sound: play5,
+      rotation: [0.6, 0.3, 0],
+    },
+    {
+      position: [-7, 1.2, -1.2],
+      scale: 1.3,
+      color: "#F77B23",
+      sound: play2,
+      rotation: [0, 0, 0.6],
+    },
+    {
+      position: [1, -2, 6],
+      scale: 1.2,
+      color: "#E6D62E",
+      sound: play1,
+      rotation: [0.6, 0, 0],
+    },
+    {
+      position: [1, 2, -10],
+      scale: 0.9,
+      color: "#EBDCAB",
+      sound: play5,
+      rotation: [0, 0, 0.9],
+    },
+  ];
+
+  const sphereRefs = useRef([]);
+
+  const randomItem = (items) => items[Math.floor(Math.random() * items.length)];
 
   useFrame((state, delta) => {
-    sphere1.current.rotation.y += delta * 0.6;
-    sphere1.current.rotation.z += delta * 0.6;
-    sphere2.current.rotation.z += delta * 0.6;
-    sphere3.current.rotation.z += delta * 0.5;
-    sphere4.current.rotation.y += delta * 0.6;
-    sphere5.current.rotation.x += delta * 0.6;
-    sphere6.current.rotation.x += delta * 0.2;
-    sphere7.current.rotation.z += delta * 0.6;
-    sphere8.current.rotation.z += delta * 0.6;
-    sphere9.current.rotation.y += delta * 0.3;
-    sphere9.current.rotation.x += delta * 0.6;
-    sphere10.current.rotation.z += delta * 0.6;
-    sphere11.current.rotation.x += delta * 0.6;
-    sphere12.current.rotation.z += delta * 0.9;
+    sphereRefs.current.forEach((ref, i) => {
+      if (!ref) return;
+      const [rx, ry, rz] = sphereData[i].rotation;
+      ref.rotation.x += delta * rx;
+      ref.rotation.y += delta * ry;
+      ref.rotation.z += delta * rz;
+    });
   });
 
-  const sphereHandler = (evt) => {
-    // evt.object.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
-    evt.object.material.color.set(randomItem(colorArray));
-    // evt.object.material.map.set(randomItem(normalArrays));
-    console.log(evt.object);
-    console.log(evt.eventObject.uuid);
-    console.log("the event");
+  const handleSphereClick = (evt) => {
+    evt.object.material.color.set(randomItem(colors));
+    console.log(evt.object, evt.eventObject.uuid, "Sphere clicked");
+  };
+
+  const pointerEvents = {
+    onPointerEnter: () => (document.body.style.cursor = "pointer"),
+    onPointerLeave: () => (document.body.style.cursor = "auto"),
   };
 
   return (
@@ -99,187 +161,23 @@ export default function Spheres() {
       />
       <directionalLight position={[1, 1, 3]} intensity={1} color="white" />
       <ambientLight intensity={1.2} color="white" />
-      <mesh
-        ref={sphere1}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play5();
-        }}
-        onContextMenu={sphereHandler}
-        position={[3, 1.6, 1]}
-        scale={0.7}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere2}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play4();
-        }}
-        onContextMenu={sphereHandler}
-        position={[-2, 2, -2]}
-        scale={0.7}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
-      </mesh>
-
-      <mesh
-        ref={sphere3}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play3();
-        }}
-        onContextMenu={sphereHandler}
-        position={[2.2, 1, -5]}
-        scale={1.2}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere4}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play2();
-        }}
-        onContextMenu={sphereHandler}
-        position={[6, -2, -2.5]}
-        scale={0.9}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#BADFFF" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere5}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play2();
-        }}
-        onContextMenu={sphereHandler}
-        position={[1.1, -3.2, -0.9]}
-        scale={1}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere6}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play1();
-        }}
-        onContextMenu={sphereHandler}
-        position={[-2.5, -1.2, -2]}
-        scale={0.8}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere7}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play4();
-        }}
-        onContextMenu={sphereHandler}
-        position={[-5, 2, -6]}
-        scale={1.2}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#FFBFC3" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere8}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play3();
-        }}
-        onContextMenu={sphereHandler}
-        position={[-6, -6, -1.8]}
-        scale={1.5}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere9}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play5();
-        }}
-        onContextMenu={sphereHandler}
-        position={[1, -5, 3]}
-        scale={0.9}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#F0BB0E" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere10}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play2();
-        }}
-        onContextMenu={sphereHandler}
-        position={[-7, 1.2, -1.2]}
-        scale={1.3}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#F77B23" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere11}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play1();
-        }}
-        onContextMenu={sphereHandler}
-        position={[1, -2, 6]}
-        scale={1.2}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#E6D62E" map={randomItem(normalArray)} />
-      </mesh>
-      <mesh
-        ref={sphere12}
-        onClick={(evt) => {
-          sphereHandler(evt);
-          play5();
-        }}
-        onContextMenu={sphereHandler}
-        position={[1, 2, -10]}
-        scale={0.9}
-        onPointerEnter={(e) => (document.body.style.cursor = "pointer")}
-        onPointerLeave={(e) => (document.body.style.cursor = "auto")}
-      >
-        <sphereGeometry />
-        <meshStandardMaterial color="#EBDCAB" map={randomItem(normalArray)} />
-      </mesh>
+      {sphereData.map((s, i) => (
+        <mesh
+          key={i}
+          ref={(el) => (sphereRefs.current[i] = el)}
+          position={s.position}
+          scale={s.scale}
+          onClick={(evt) => {
+            handleSphereClick(evt);
+            s.sound();
+          }}
+          onContextMenu={handleSphereClick}
+          {...pointerEvents}
+        >
+          <sphereGeometry />
+          <meshStandardMaterial color={s.color} map={randomItem(textures)} />
+        </mesh>
+      ))}
     </>
   );
 }
